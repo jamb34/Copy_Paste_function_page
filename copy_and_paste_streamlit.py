@@ -22,16 +22,12 @@ def copy_folder_contents(src_folder, dest_folder):
 # Streamlit interface
 st.title("Copy and Paste Function")
 
-src_folder = st.text_input("Source Folder")
-dest_folder = st.text_input("Destination Folder")
-
-st.write(f"Source folder path: {src_folder}")
-st.write(f"Destination folder path: {dest_folder}")
+src_folder = st.text_input("Source Folder", "Enter the full path of the source folder")
+dest_folder = st.text_input("Destination Folder", "Enter the full path of the destination folder")
 
 if st.button("Run Copy Process"):
     if src_folder and dest_folder:
         if os.path.exists(src_folder):
-            st.write(f"Source folder exists: {src_folder}")
             copy_folder_contents(src_folder, dest_folder)
             st.success("Copying complete!")
         else:
